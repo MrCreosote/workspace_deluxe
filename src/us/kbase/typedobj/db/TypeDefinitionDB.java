@@ -29,6 +29,7 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
 import us.kbase.jkidl.StaticIncludeProvider;
+import us.kbase.kidl.JSONableVisitor;
 import us.kbase.kidl.KbAnnotationId;
 import us.kbase.kidl.KbAnnotationSearch;
 import us.kbase.kidl.KbFuncdef;
@@ -2565,7 +2566,7 @@ public class TypeDefinitionDB {
 			for (RefInfo ref : usedRefs)
 				usedTypeDefIds.add(ref.getRefModule() + "." + ref.getRefName() + "-" + ref.getRefVersion());
 			String jsonSchema = getJsonSchemaDocumentNL(typeDef, userId);
-			String parsingStructure = mapper.writeValueAsString(parsing.toJson());
+			String parsingStructure = mapper.writeValueAsString(parsing.accept(new JSONableVisitor()));
 			return new TypeDetailedInfo(typeDef.getTypeString(), description, specDef, jsonSchema, 
 					parsingStructure, moduleVersions, releasedModuleVersions, typeVersions, 
 					releasedTypeVersions, usingFuncDefIds, usingTypeDefIds, usedTypeDefIds);
@@ -2623,7 +2624,7 @@ public class TypeDefinitionDB {
 			List<String> usedTypeDefIds = new ArrayList<String>();
 			for (RefInfo ref : usedRefs)
 				usedTypeDefIds.add(ref.getRefModule() + "." + ref.getRefName() + "-" + ref.getRefVersion());
-			String parsingStructure = mapper.writeValueAsString(parsing.toJson());
+			String parsingStructure = mapper.writeValueAsString(parsing.accept(new JSONableVisitor()));
 			return new FuncDetailedInfo(moduleName + "." + funcName + "-" + version, 
 					description, specDef, parsingStructure, moduleVersions, releasedModuleVersions, 
 					funcVersions, releasedFuncVersions, usedTypeDefIds);
