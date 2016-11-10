@@ -48,7 +48,7 @@ import com.mongodb.DB;
 public class GetReferencedObjectWithBFS {
 	
 	private static final int TEST_REPS = 3;
-	private static final boolean DO_LINEAR = false;
+	private static final boolean DO_LINEAR = true;
 	private static final boolean DO_BRANCHED = true;
 	
 	private static final String MONGO_EXE = "/kb/runtime/bin/mongod";
@@ -143,10 +143,10 @@ public class GetReferencedObjectWithBFS {
 		Provenance p = new Provenance(u1);
 		WorkspaceIdentifier read = new WorkspaceIdentifier("brcread");
 		WorkspaceIdentifier priv = new WorkspaceIdentifier("brcpriv");
-		for (int breadth = 1; breadth <= 10; breadth++) {
+		for (int breadth = 1; breadth <= 7; breadth++) {
 			WorkspaceTestCommon.destroyDB(WSDB);
-			WS.createWorkspace(u1, read.getName(), false, null, null);
-			WS.createWorkspace(u1, priv.getName(), true, null, null);
+			WS.createWorkspace(u1, read.getName(), true, null, null);
+			WS.createWorkspace(u1, priv.getName(), false, null, null);
 			ObjectInformation o = WS.saveObjects(u1, priv, Arrays.asList(
 					new WorkspaceSaveObject(new HashMap<String, String>(), LEAF_TYPE,
 							null, p, false)), fac).get(0);
