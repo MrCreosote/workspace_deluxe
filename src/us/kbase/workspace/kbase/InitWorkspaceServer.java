@@ -37,7 +37,6 @@ import us.kbase.workspace.database.ResourceUsageConfigurationBuilder;
 import us.kbase.workspace.database.Types;
 import us.kbase.workspace.database.Workspace;
 import us.kbase.workspace.database.WorkspaceDatabase;
-import us.kbase.workspace.database.exceptions.CorruptWorkspaceDBException;
 import us.kbase.workspace.database.exceptions.WorkspaceDBException;
 import us.kbase.workspace.database.mongo.BlobStore;
 import us.kbase.workspace.database.mongo.GridFSBlobStore;
@@ -366,20 +365,21 @@ public class InitWorkspaceServer {
 		try {
 			wsSettings = settings.findOne().as(Settings.class);
 		} catch (MarshallingException me) {
-			Throwable ex = me.getCause();
+			final Throwable ex = me.getCause();
 			if (ex == null) {
 				throw new WorkspaceInitException(
 						"Unable to unmarshal settings workspace database document: " +
 						me.getLocalizedMessage(), me);
 			}
-			ex = ex.getCause();
-			if (ex == null || !(ex instanceof CorruptWorkspaceDBException)) {
+			final Throwable ex2 = ex.getCause();
+			if (ex2 == null) { // not sure if this is actually possible
 				throw new WorkspaceInitException(
-						"Unable to unmarshal settings workspace database document", me);
+						"Unable to unmarshal settings workspace database document: " +
+								ex.getMessage(), ex);
 			}
 			throw new WorkspaceInitException(
 					"Unable to unmarshal settings workspace database document: " +
-							ex.getLocalizedMessage(), ex);
+							ex2.getMessage(), ex2);
 		}
 		if (db.getName().equals(wsSettings.getTypeDatabase())) {
 			throw new WorkspaceInitException(

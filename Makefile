@@ -26,7 +26,7 @@ DEPLOY_RUNTIME ?= /kb/runtime
 JAVA_HOME ?= $(DEPLOY_RUNTIME)/java
 TARGET ?= /kb/deployment
 SERVICE_DIR ?= $(TARGET)/services/$(SERVICE)
-GLASSFISH_HOME ?= $(DEPLOY_RUNTIME)/glassfish3
+GLASSFISH_HOME ?= $(DEPLOY_RUNTIME)/glassfish4
 SERVICE_USER ?= kbase
 TPAGE ?= $(DEPLOY_RUNTIME)/bin/tpage
 

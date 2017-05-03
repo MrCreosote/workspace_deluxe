@@ -160,6 +160,7 @@ class CommandGlassfishDomain(object):
                   .rstrip())
         print(self._run_remote_command(
             'deploy', '--virtualservers', 'server-' + portstr,
+            '--property', 'implicitCdiEnabled=false',
             '--contextroot', '/', '--name', 'app-' + portstr, war).rstrip())
         try:
             urllib2.urlopen('http://localhost:' + portstr)
