@@ -1,6 +1,7 @@
 dist: bionic
 sudo: required
 language: java
+python: "3.7"
 jdk:
   - openjdk8
   - openjdk11
@@ -16,12 +17,12 @@ before_install:
   - wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   
   # install python
-  - python --version
-  - sudo add-apt-repository -y ppa:deadsnakes/ppa
-  - sudo apt update -q
-  - sudo apt install -y ant-optional
-  - sudo apt install -y python3.7 python3-pip python3.7-dev build-essential
-  - python --version
+#  - python --version
+#  - sudo add-apt-repository -y ppa:deadsnakes/ppa
+#  - sudo apt update -q
+#  - sudo apt install -y ant-optional
+#  - sudo apt install -y python3.7 python3-pip python3.7-dev build-essential
+#  - python --version
   - pip install pipenv
 
 install:
