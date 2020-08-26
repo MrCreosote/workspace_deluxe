@@ -98,8 +98,8 @@ script:
   - sed -i "s#^test.shock.exe.*#test.shock.exe=$SHOCKEXE#" test.cfg
   - sed -i "s#^test.handleservice.dir.*#test.handleservice.dir=$HSDIR#" test.cfg
   - sed -i "s#^test.sampleservice.dir.*#test.sampleservice.dir=$SAMPLE_DIR#" test.cfg
-  - sed -i "s#^test.arango.exe.*#test.arango.exe=$ARANGO_EXE/lib#" test.cfg
-  - sed -i "s#^test.arango.js.*#test.arango.js=$ARANGO_JS/lib#" test.cfg
+  - sed -i "s#^test.arango.exe.*#test.arango.exe=$ARANGO_EXE#" test.cfg
+  - sed -i "s#^test.arango.js.*#test.arango.js=$ARANGO_JS#" test.cfg
   - cat test.cfg
  
   # run tests
