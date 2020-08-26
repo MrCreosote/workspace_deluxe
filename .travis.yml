@@ -107,6 +107,9 @@ script:
  
   # run tests
   - ant javadoc
+  - cd python_dependencies
+  - pipenv shell
+  - cd ..
   - ant $ANT_TEST
 
 after_success:
