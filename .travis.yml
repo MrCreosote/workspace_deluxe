@@ -56,7 +56,7 @@ install:
   - export HSDIR=`pwd`
   
   # set up sample service
-  - export SAMPLE_COMMIT=b549c557e3c519e0a55eadf7863a93db25cd6806
+  - export SAMPLE_COMMIT=695bb800cb3babe2084e93c260affcd10018d3e7
   - git clone https://github.com/kbase/sample_service.git
   - cd sample_service
   - git checkout $SAMPLE_COMMIT
