@@ -71,7 +71,7 @@ install:
   
   # install python dependencies
   - cd python_dependencies
-  - pipenv install --dev
+  - pipenv install --dev --system
   - cd ..
 
 script:
@@ -107,9 +107,6 @@ script:
  
   # run tests
   - ant javadoc
-  - cd python_dependencies
-  - pipenv shell
-  - cd ..
   - ant $ANT_TEST
 
 after_success:
