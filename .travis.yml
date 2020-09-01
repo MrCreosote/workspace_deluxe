@@ -24,7 +24,8 @@ before_install:
   - sudo apt update -q
   - sudo apt install -y python3.7 python3-pip python3.7-dev build-essential
   - which python3
-  - pyenv global python-3.7
+  - pyenv versions
+  - pyenv global 3.7
   - python --version
   - pip3 install pipenv
 
