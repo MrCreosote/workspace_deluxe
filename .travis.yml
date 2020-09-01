@@ -77,8 +77,8 @@ install:
   - ls -l $(which pipenv)
   - cd ..
   
-  - sed -i "s/#BEGIN_HEADER/#BEGIN_HEADER\nimport sys\nprint(sys.version)/" $SAMPLE_DIR/SampleServiceImpl.py
-  - cat $SAMPLE_DIR/SampleServiceImpl.py
+  - sed -i "s/#BEGIN_HEADER/#BEGIN_HEADER\nimport sys\nprint(sys.version)/" $SAMPLE_DIR/SampleService/SampleServiceImpl.py
+  - cat $SAMPLE_DIR/SampleService/SampleServiceImpl.py
 
 script:
   # set up minio
