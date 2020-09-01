@@ -25,6 +25,8 @@ before_install:
   - sudo apt install -y python3.7 python3-pip python3.7-dev build-essential
   - python --version
   - pip3 install pipenv
+  - pipenv --py
+  - $(pipenv --py) --version
 
 install:
   - export HOMEDIR=`pwd`
