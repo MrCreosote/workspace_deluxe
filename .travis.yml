@@ -73,6 +73,8 @@ install:
   - pipenv install --dev --system
   - which gunicorn
   - which pipenv
+  - ls -l $(which gunicorn)
+  - ls -l $(which pipenv)
   - cd ..
 
 script:
