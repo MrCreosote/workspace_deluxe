@@ -74,7 +74,7 @@ install:
   # install python dependencies
   - cd python_dependencies
   - pipenv install --dev
-  - which gunicorn
+  - pipenv run which gunicorn
   - which pipenv
   - ls -l $(which gunicorn)
   - ls -l $(which pipenv)
