@@ -77,7 +77,7 @@ install:
   - ls -l $(which pipenv)
   - cd ..
   
-  - sed -i "s/= _build_samples(config)/= _build_samples(config)\nimport sys\n/print(sys.version)/" $SAMPLE_DIR/SampleServiceImpl.py
+  - sed -i "s/#BEGIN_HEADER/#BEGIN_HEADER\n/import sys\n/print(sys.version)/" $SAMPLE_DIR/SampleServiceImpl.py
   - cat $SAMPLE_DIR/SampleServiceImpl.py
 
 script:
