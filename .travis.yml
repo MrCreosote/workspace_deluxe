@@ -116,7 +116,7 @@ script:
  
   # run tests
   - ant javadoc
-  - ant $ANT_TEST
+  - pipenv run ant $ANT_TEST
 
 after_success:
   - ls test-reports
