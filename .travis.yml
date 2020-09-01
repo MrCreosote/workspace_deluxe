@@ -76,6 +76,9 @@ install:
   - ls -l $(which gunicorn)
   - ls -l $(which pipenv)
   - cd ..
+  
+  - sed -i "s/= _build_samples(config)/= _build_samples(config)\nimport sys\n/print(sys.version)/" $SAMPLE_DIR/SampleServiceImpl.py
+  - cat $SAMPLE_DIR/SampleServiceImpl.py
 
 script:
   # set up minio
