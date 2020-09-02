@@ -116,6 +116,8 @@ script:
  
   # run tests
   - ant javadoc
+  - pipenv run which gunicorn
+  - pipenv run which uwsgi
   - pipenv run ant $ANT_TEST
 
 after_success:
