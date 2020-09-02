@@ -116,6 +116,7 @@ script:
  
   # run tests
   - ant javadoc
+  - export PIPENV_PIPFILE=$(pwd)/python_dependencies/
   - pipenv run which gunicorn
   - pipenv run which uwsgi
   - pipenv run ant $ANT_TEST
