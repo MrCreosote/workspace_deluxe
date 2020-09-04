@@ -26,8 +26,9 @@ before_install:
   - which python3
   - python --version
   - which python3.7
+  - python3.7 --version
   - curl https://bootstrap.pypa.io/get-pip.py -o ../get-pip.py
-  - python3.7 ../get-pip.py
+  - python3.7 ../get-pip.py --trusted-host pypi.org
   - which pyenv
   - pyenv versions
   - echo $PYENV_ROOT
