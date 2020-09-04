@@ -22,11 +22,10 @@ before_install:
   - python --version
   - sudo add-apt-repository -y ppa:deadsnakes/ppa
   - sudo apt update -q
-  - sudo apt install -y python3.7 python3-pip python3.7-dev build-essential
+  - sudo apt install -y python3.7 python3.7-pip python3.7-dev build-essential
   - which python3
   - python --version
   - which python3.7
-  - python3.7 -m ensurepip --upgrade
   - which pyenv
   - pyenv versions
   - echo $PYENV_ROOT
