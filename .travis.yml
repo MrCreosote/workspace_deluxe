@@ -29,7 +29,7 @@ before_install:
   - which pyenv
   - pyenv versions
   - echo $PYENV_ROOT
-  - git clone https://github.com/doloopwhile/pyenv-register.git $(PYENV_ROOT)/plugins/pyenv-register
+  - git clone https://github.com/doloopwhile/pyenv-register.git $PYENV_ROOT/plugins/pyenv-register
   - pyenv register 
   - pyenv local 3.7
   - python --version
