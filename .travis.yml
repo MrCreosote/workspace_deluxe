@@ -32,7 +32,8 @@ before_install:
   - which pyenv
   - pyenv versions
   - echo $PYENV_ROOT
-  - pyenv local 3.7
+  # TODO figure out not to hardcode the minor version
+  - pyenv local 3.7.1
   - python --version
   - pip3 install pipenv
 
