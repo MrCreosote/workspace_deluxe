@@ -26,6 +26,7 @@ before_install:
   - which python3
   - python --version
   - which python3.7
+  - python3.7 -m ensurepip --upgrade
   - which pyenv
   - pyenv versions
   - echo $PYENV_ROOT
