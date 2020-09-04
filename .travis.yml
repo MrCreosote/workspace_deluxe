@@ -19,19 +19,7 @@ before_install:
   - sudo apt install -y ant-optional
 
   # install python deps
-  - python --version
-  - sudo add-apt-repository -y ppa:deadsnakes/ppa
-  - sudo apt update -q
-  - sudo apt install -y python3.7 python3.7-dev build-essential
-  - which python3
-  - python --version
-  - which python3.7
-  - python3.7 --version
-  - curl https://bootstrap.pypa.io/get-pip.py -o ../get-pip.py
-  - python3.7 ../get-pip.py --trusted-host pypi.org --trusted-host pypi.python.org
-  - which pyenv
   - pyenv versions
-  - echo $PYENV_ROOT
   # TODO figure out not to hardcode the minor version
   - pyenv local 3.7.1
   - python --version
