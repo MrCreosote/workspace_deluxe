@@ -20,8 +20,9 @@ before_install:
 
   # install python deps
   - pyenv versions
-  # TODO figure out not to hardcode the minor version
-  - pyenv local 3.7.1
+  - export PYVER=$(pyenv versions | grep "3.7")
+  - echo $PYVER
+  - pyenv local $PYVER
   - python --version
   - pip3 install pipenv
 
