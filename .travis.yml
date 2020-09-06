@@ -71,14 +71,7 @@ install:
   # install python dependencies
   - cd python_dependencies
   - pipenv install --dev
-  - pipenv run which gunicorn
-  - which pipenv
-  - ls -l $(which gunicorn)
-  - ls -l $(which pipenv)
   - cd ..
-  
-  - sed -i "s/#BEGIN_HEADER/#BEGIN_HEADER\nimport sys\nprint(sys.version)/" $SAMPLE_DIR/SampleService/SampleServiceImpl.py
-  - cat $SAMPLE_DIR/SampleService/SampleServiceImpl.py
 
 script:
   # set up minio
@@ -114,8 +107,6 @@ script:
   # run tests
   - ant javadoc
   - export PIPENV_PIPFILE=$(pwd)/python_dependencies/Pipfile
-  - pipenv run which gunicorn
-  - pipenv run which uwsgi
   - pipenv run ant $ANT_TEST
 
 after_success:
